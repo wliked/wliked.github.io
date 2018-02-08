@@ -113,7 +113,7 @@
 <meta property="og:site_name" content="wliked">
 <meta property="og:description" content="python manage.py makemigrations 提示No changes detected的解决方案一般是按如下方法进行操作:">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-02-08T06:01:08.057Z">
+<meta property="og:updated_time" content="2018-02-08T06:04:17.413Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="python manage.py makemigrations 提示No changes detected的解决方法">
 <meta name="twitter:description" content="python manage.py makemigrations 提示No changes detected的解决方案一般是按如下方法进行操作:">
@@ -430,7 +430,7 @@
 <blockquote>
 <ol>
 <li>更改你的app下面的model</li>
-<li><figure class="highlight python"><figcaption><span>manage.py makemigrations # 生成新更改的model对应的migration file  如003_auto_2018-12-30.py```</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt;<span class="number">3.</span> ```python manage.py sqlmigrate yourappname <span class="number">003</span> <span class="comment"># 生成新的migration file 对应的sql</span></span><br><span class="line">(注意:这种方式会把model中设置的default值去掉. 生成sql语句后,要手动把这些sql语句中drop default的语句删除)</span><br></pre></td></tr></table></figure>
+<li><figure class="highlight plain"><figcaption><span>manage.py makemigrations # 生成新更改的model对应的migration file  如003_auto_2018-12-30.py```</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt;3. ```\python manage.py sqlmigrate yourappname 003 # 生成新的migration file 对应的sql</span><br><span class="line">(注意:这种方式会把model中设置的default值去掉. 生成sql语句后,要手动把这些sql语句中drop default的语句删除)</span><br></pre></td></tr></table></figure>
 </li>
 </ol>
 </blockquote>
