@@ -94,7 +94,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="docker," />
 
 
 
@@ -105,16 +105,18 @@
 
 
 
-<meta name="description" content="牛皮吹上天">
-<meta property="og:type" content="website">
-<meta property="og:title" content="wliked">
-<meta property="og:url" content="http://yoursite.com/tags/test/index.html">
+<meta name="description" content="本文介绍常用的Docker命令和一个最简单的Dockerfile示例.">
+<meta name="keywords" content="docker">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Docker常用命令">
+<meta property="og:url" content="http://yoursite.com/docker/Docker常用命令/index.html">
 <meta property="og:site_name" content="wliked">
-<meta property="og:description" content="牛皮吹上天">
+<meta property="og:description" content="本文介绍常用的Docker命令和一个最简单的Dockerfile示例.">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-02-08T06:40:37.909Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="wliked">
-<meta name="twitter:description" content="牛皮吹上天">
+<meta name="twitter:title" content="Docker常用命令">
+<meta name="twitter:description" content="本文介绍常用的Docker命令和一个最简单的Dockerfile示例.">
 
 
 
@@ -144,13 +146,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/tags/test/"/>
+  <link rel="canonical" href="http://yoursite.com/docker/Docker常用命令/"/>
 
 
 
 
 
-  <title>标签: test | wliked</title>
+  <title>Docker常用命令 | wliked</title>
   
 
 
@@ -169,7 +171,7 @@
     
   
 
-  <div class="container sidebar-position-left ">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -307,54 +309,226 @@
           <div id="content" class="content">
             
 
-  
-  
-  
-  <div class="post-block tag">
+  <div id="posts" class="posts-expand">
+    
 
-    <div id="posts" class="posts-collapse">
-      <div class="collection-title">
-        <h1>test<small>标签</small>
-        </h1>
-      </div>
+  
 
-      
-        
+  
+  
+  
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/docker/Docker常用命令/">
 
-      <h2 class="post-title">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="wliked">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="wliked">
+    </span>
+
+    
+      <header class="post-header">
+
         
-            <a class="post-title-link" href="/uncategorized/second-post/" itemprop="url">
-              
-                <span itemprop="name">second post</span>
-              
-            </a>
         
-      </h2>
+          <h1 class="post-title" itemprop="name headline">Docker常用命令</h1>
+        
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-02-02T17:27:35+08:00"
-              content="2018-02-02" >
-          02-02
-        </time>
-      </div>
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-02-08T14:20:00+08:00">
+                2018-02-08
+              </time>
+            
 
-    </header>
-  </article>
+            
 
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/docker/" itemprop="url" rel="index">
+                    <span itemprop="name">docker</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv">本文总阅读量
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>次
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-    </div>
+      
 
+      
+        <p>本文介绍常用的Docker命令和一个最简单的Dockerfile示例.</p>
+<a id="more"></a>
+<p>#常用命令<br>    <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">docker ps                           # 显示所有running docker container, 可以看到容器的名称和id</span><br><span class="line">docker ps -a                        # 显示所有docker container，包含已停止运行的</span><br><span class="line">docker stop &#123;container_name/id&#125;     # 停止某个running 的容器</span><br><span class="line">docker rm &#123;container_name/id&#125;       # 删除一个停止的容器</span><br><span class="line">docker start &#123;container_name/id&#125;    # 重新启动某个stop的容器</span><br><span class="line">docker attach &#123;container_name/id&#125;   # attach 到一个已运行的容器中进程的stdin, 如果从这个stdin 中exit, 会导致容器的停止</span><br><span class="line"></span><br><span class="line">docker run -d -p 10022:22 herong/centos7-ssh:latest /usr/sbin/sshd -D  # detach 模式运行容器，并将宿主机端口10022映射到容器端口22</span><br><span class="line">docker port 4966d35fe0a3                #查看容器的端口映射情况, 4966d35fe0a3目标容器的id</span><br><span class="line"></span><br><span class="line">docker images                                   # 显示所有本地的image</span><br><span class="line">docker rim &#123;image_name/id&#125;                      # 删除一个image, 如果有容器引用了该镜像, 则需先删除容器</span><br><span class="line">docker run docker/whalesay cowsay boo-boo       # run一个image: docker/whalesay</span><br><span class="line">docker run -it docker/whalesay                  # 交互式方式 run 一个容器</span><br><span class="line">docker exec -it &#123;container_name/id&#125; /bin/bash   # 在已启动的容器中启动一个交互式命令行, 这个命令行进程与容器中已运行的进程无相互影响, 不会像attach方式因为退出导致整个容器退出</span><br><span class="line"></span><br><span class="line">docker login            # 输入dockerhub 用户名密码登陆dockerhub</span><br><span class="line">docker search python    # 在dockerhub 上搜索镜像</span><br><span class="line">docker pull python      # 从dockerhub pull 一个镜像</span><br><span class="line">docker run yourusername/docker-whale        #从docker hub下载image并run</span><br><span class="line">docker commit -a wliked -m "comments" &#123;container_name/id&#125;  wliked/vacation_system:v1.0   # 从正在running的容器commit 一个镜像</span><br><span class="line">docker tag vacation_system wliked/vacation_system:v1.0    #更改镜像名称并将其加入一个repo (wliked) , 这个repo一般是dockerhub用户名,或私有镜像仓库中的用户名</span><br><span class="line">docker push wliked/vacation_system:v1.0                   # 打上repo名后,可以向dockerhub push 镜像</span><br></pre></td></tr></table></figure></p>
+<p>#简单Dockerfile示例<br>   <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mkdir dockerbuild</span><br><span class="line">cd dockerbuild</span><br><span class="line">touch Dockerfile  # 新建文件并输入如下Doerkfile内容</span><br></pre></td></tr></table></figure></p>
+<blockquote>
+<p>FROM docker/whalesay:latest<br>RUN apt-get -y update &amp;&amp; apt-get install -y fortunes   # RUN 命令会基于已有的镜像层run一个容器起来, 在里面执行命令, 然后docker commit一个镜像,  每个RUN命令都对应这样一个动作;  所以镜像是一层层build出来的<br>CMD /usr/games/fortune -a | cowsay</p>
+</blockquote>
+<p>#根据Dockerfile build一个镜像:</p>
+<pre><code><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">docker build -t docker-whale .  # build 一个叫 docker-whale 的image, 注意后面的 . 号, 表示 Dockerfile的路径</span><br><span class="line">docker run docker-whale         # 运行自己刚build 出来的image</span><br><span class="line">docker tag 7d9495d03763 maryatdocker/docker-whale:latest   # 为image打tag</span><br></pre></td></tr></table></figure>
+</code></pre>
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>坚持干货技术分享，您的支持将鼓励我更好创作！</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wechatpay.jpg" alt="wliked 微信支付"/>
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/alipay.jpg" alt="wliked 支付宝"/>
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/docker/" rel="tag"># docker</a>
+          
+        </div>
+      
+
+      
+      
+        <div class="post-widgets">
+        
+
+        
+
+        
+          
+          <div id="needsharebutton-postbottom">
+            <span class="btn">
+              <i class="fa fa-share-alt" aria-hidden="true"></i>
+            </span>
+          </div>
+        
+        </div>
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/experience/python-manage-py-makemigrations-提示No-changes-detected的解决方法/" rel="next" title="python manage.py makemigrations 提示No changes detected的解决方法">
+                <i class="fa fa-chevron-left"></i> python manage.py makemigrations 提示No changes detected的解决方法
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -362,6 +536,15 @@
 
 
           
+
+  
+    <div class="comments" id="comments">
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8zMzg4OS8xMDQ0Mg=="></div>
+    </div>
+
+  
+
+
 
         </div>
         
@@ -622,6 +805,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 
@@ -650,6 +837,17 @@
 
 
 
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
   
 
 
