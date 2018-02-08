@@ -113,7 +113,7 @@
 <meta property="og:site_name" content="wliked">
 <meta property="og:description" content="本文介绍常用的Docker命令和一个最简单的Dockerfile示例.">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-02-08T06:40:37.909Z">
+<meta property="og:updated_time" content="2018-02-08T06:44:38.073Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Docker常用命令">
 <meta name="twitter:description" content="本文介绍常用的Docker命令和一个最简单的Dockerfile示例.">
@@ -419,13 +419,9 @@
       
         <p>本文介绍常用的Docker命令和一个最简单的Dockerfile示例.</p>
 <a id="more"></a>
-<p>#常用命令<br>    <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">docker ps                           # 显示所有running docker container, 可以看到容器的名称和id</span><br><span class="line">docker ps -a                        # 显示所有docker container，包含已停止运行的</span><br><span class="line">docker stop &#123;container_name/id&#125;     # 停止某个running 的容器</span><br><span class="line">docker rm &#123;container_name/id&#125;       # 删除一个停止的容器</span><br><span class="line">docker start &#123;container_name/id&#125;    # 重新启动某个stop的容器</span><br><span class="line">docker attach &#123;container_name/id&#125;   # attach 到一个已运行的容器中进程的stdin, 如果从这个stdin 中exit, 会导致容器的停止</span><br><span class="line"></span><br><span class="line">docker run -d -p 10022:22 herong/centos7-ssh:latest /usr/sbin/sshd -D  # detach 模式运行容器，并将宿主机端口10022映射到容器端口22</span><br><span class="line">docker port 4966d35fe0a3                #查看容器的端口映射情况, 4966d35fe0a3目标容器的id</span><br><span class="line"></span><br><span class="line">docker images                                   # 显示所有本地的image</span><br><span class="line">docker rim &#123;image_name/id&#125;                      # 删除一个image, 如果有容器引用了该镜像, 则需先删除容器</span><br><span class="line">docker run docker/whalesay cowsay boo-boo       # run一个image: docker/whalesay</span><br><span class="line">docker run -it docker/whalesay                  # 交互式方式 run 一个容器</span><br><span class="line">docker exec -it &#123;container_name/id&#125; /bin/bash   # 在已启动的容器中启动一个交互式命令行, 这个命令行进程与容器中已运行的进程无相互影响, 不会像attach方式因为退出导致整个容器退出</span><br><span class="line"></span><br><span class="line">docker login            # 输入dockerhub 用户名密码登陆dockerhub</span><br><span class="line">docker search python    # 在dockerhub 上搜索镜像</span><br><span class="line">docker pull python      # 从dockerhub pull 一个镜像</span><br><span class="line">docker run yourusername/docker-whale        #从docker hub下载image并run</span><br><span class="line">docker commit -a wliked -m "comments" &#123;container_name/id&#125;  wliked/vacation_system:v1.0   # 从正在running的容器commit 一个镜像</span><br><span class="line">docker tag vacation_system wliked/vacation_system:v1.0    #更改镜像名称并将其加入一个repo (wliked) , 这个repo一般是dockerhub用户名,或私有镜像仓库中的用户名</span><br><span class="line">docker push wliked/vacation_system:v1.0                   # 打上repo名后,可以向dockerhub push 镜像</span><br></pre></td></tr></table></figure></p>
-<p>#简单Dockerfile示例<br>   <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mkdir dockerbuild</span><br><span class="line">cd dockerbuild</span><br><span class="line">touch Dockerfile  # 新建文件并输入如下Doerkfile内容</span><br></pre></td></tr></table></figure></p>
-<blockquote>
-<p>FROM docker/whalesay:latest<br>RUN apt-get -y update &amp;&amp; apt-get install -y fortunes   # RUN 命令会基于已有的镜像层run一个容器起来, 在里面执行命令, 然后docker commit一个镜像,  每个RUN命令都对应这样一个动作;  所以镜像是一层层build出来的<br>CMD /usr/games/fortune -a | cowsay</p>
-</blockquote>
-<p>#根据Dockerfile build一个镜像:</p>
-<pre><code><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">docker build -t docker-whale .  # build 一个叫 docker-whale 的image, 注意后面的 . 号, 表示 Dockerfile的路径</span><br><span class="line">docker run docker-whale         # 运行自己刚build 出来的image</span><br><span class="line">docker tag 7d9495d03763 maryatdocker/docker-whale:latest   # 为image打tag</span><br></pre></td></tr></table></figure>
+<h1 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h1><pre><code><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">docker ps                           # 显示所有running docker container, 可以看到容器的名称和id</span><br><span class="line">docker ps -a                        # 显示所有docker container，包含已停止运行的</span><br><span class="line">docker stop &#123;container_name/id&#125;     # 停止某个running 的容器</span><br><span class="line">docker rm &#123;container_name/id&#125;       # 删除一个停止的容器</span><br><span class="line">docker start &#123;container_name/id&#125;    # 重新启动某个stop的容器</span><br><span class="line">docker attach &#123;container_name/id&#125;   # attach 到一个已运行的容器中进程的stdin, 如果从这个stdin 中exit, 会导致容器的停止</span><br><span class="line"></span><br><span class="line">docker run -d -p 10022:22 herong/centos7-ssh:latest /usr/sbin/sshd -D  # detach 模式运行容器，并将宿主机端口10022映射到容器端口22</span><br><span class="line">docker port 4966d35fe0a3                #查看容器的端口映射情况, 4966d35fe0a3目标容器的id</span><br><span class="line"></span><br><span class="line">docker images                                   # 显示所有本地的image</span><br><span class="line">docker rim &#123;image_name/id&#125;                      # 删除一个image, 如果有容器引用了该镜像, 则需先删除容器</span><br><span class="line">docker run docker/whalesay cowsay boo-boo       # run一个image: docker/whalesay</span><br><span class="line">docker run -it docker/whalesay                  # 交互式方式 run 一个容器</span><br><span class="line">docker exec -it &#123;container_name/id&#125; /bin/bash   # 在已启动的容器中启动一个交互式命令行, 这个命令行进程与容器中已运行的进程无相互影响, 不会像attach方式因为退出导致整个容器退出</span><br><span class="line"></span><br><span class="line">docker login            # 输入dockerhub 用户名密码登陆dockerhub</span><br><span class="line">docker search python    # 在dockerhub 上搜索镜像</span><br><span class="line">docker pull python      # 从dockerhub pull 一个镜像</span><br><span class="line">docker run yourusername/docker-whale        #从docker hub下载image并run</span><br><span class="line">docker commit -a wliked -m "comments" &#123;container_name/id&#125;  wliked/vacation_system:v1.0   # 从正在running的容器commit 一个镜像</span><br><span class="line">docker tag vacation_system wliked/vacation_system:v1.0    #更改镜像名称并将其加入一个repo (wliked) , 这个repo一般是dockerhub用户名,或私有镜像仓库中的用户名</span><br><span class="line">docker push wliked/vacation_system:v1.0                   # 打上repo名后,可以向dockerhub push 镜像</span><br></pre></td></tr></table></figure>
+</code></pre><h1 id="简单Dockerfile示例"><a href="#简单Dockerfile示例" class="headerlink" title="简单Dockerfile示例"></a>简单Dockerfile示例</h1>   <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">mkdir dockerbuild</span><br><span class="line">cd dockerbuild</span><br><span class="line">touch Dockerfile  # 新建文件并输入如下Doerkfile内容</span><br><span class="line">    &gt;FROM docker/whalesay:latest</span><br><span class="line">    &gt;RUN apt-get -y update &amp;&amp; apt-get install -y fortunes   # RUN 命令会基于已有的镜像层run一个容器起来, 在里面执行命令, 然后docker commit一个镜像,  每个RUN命令都对应这样一个动作;  所以镜像是一层层build出来的</span><br><span class="line">    &gt;CMD /usr/games/fortune -a | cowsay</span><br></pre></td></tr></table></figure>
+<h1 id="根据Dockerfile-build一个镜像"><a href="#根据Dockerfile-build一个镜像" class="headerlink" title="根据Dockerfile build一个镜像:"></a>根据Dockerfile build一个镜像:</h1><pre><code><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">docker build -t docker-whale .  # build 一个叫 docker-whale 的image, 注意后面的 . 号, 表示 Dockerfile的路径</span><br><span class="line">docker run docker-whale         # 运行自己刚build 出来的image</span><br><span class="line">docker tag 7d9495d03763 maryatdocker/docker-whale:latest   # 为image打tag</span><br></pre></td></tr></table></figure>
 </code></pre>
       
     </div>
@@ -565,8 +561,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -630,6 +635,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#常用命令"><span class="nav-number">1.</span> <span class="nav-text">常用命令</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#简单Dockerfile示例"><span class="nav-number">2.</span> <span class="nav-text">简单Dockerfile示例</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#根据Dockerfile-build一个镜像"><span class="nav-number">3.</span> <span class="nav-text">根据Dockerfile build一个镜像:</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
